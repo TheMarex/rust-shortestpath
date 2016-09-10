@@ -56,6 +56,18 @@ pub type Edge = u32;
 //}
 
 
+pub trait Graph<T> {
+    type N;
+    type E;
+
+    fn num_nodes(&self) -> usize;
+    fn num_edges(&self) -> usize;
+    fn nodes(&self) -> Range<Self::N>;
+    fn edges(&self, id: Self::N) -> Range<Self::E>;
+    fn target(&self, id: Self::E) -> Self::N;
+    fn data(&self, id: Self::E) -> &T;
+}
+
 pub struct AdjArrayGraph<T> {
     offsets: Vec<u32>,
     targets: Vec<Node>,
@@ -106,6 +118,9 @@ impl<T: Ord> AdjArrayGraph<T> {
 }
 
 impl<T> Graph<T> for AdjArrayGraph<T> {
+    type N = Node;
+    type E = Edge;
+
     fn num_nodes(&self) -> usize {
         self.offsets.len() - 1
     }
@@ -138,14 +153,6 @@ impl<T> Graph<T> for AdjArrayGraph<T> {
     }
 }
 
-pub trait Graph<T> {
-    fn num_nodes(&self) -> usize;
-    fn num_edges(&self) -> usize;
-    fn nodes(&self) -> Range<Node>;
-    fn edges(&self, id: Node) -> Range<Edge>;
-    fn target(&self, id: Edge) -> Node;
-    fn data(&self, id: Edge) -> &T;
-}
 
 #[cfg(test)]
 mod tests {
