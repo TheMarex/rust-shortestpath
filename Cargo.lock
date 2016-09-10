@@ -1,4 +1,4 @@
 [root]
-name = "rust_dijkstra"
+name = "shortestpath"
 version = "0.0.1"
 

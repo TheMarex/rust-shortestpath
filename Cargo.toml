@@ -1,5 +1,5 @@
 [package]
 
-name = "rust_dijkstra"
+name = "shortestpath"
 version = "0.0.1"
 authors = [ "Patrick Niklaus <patrick.niklaus@student.kit.edu>" ]
