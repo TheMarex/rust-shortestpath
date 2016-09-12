@@ -1,5 +1,5 @@
-use addressable_heap::{AddressableHeap, AddressableBinaryHeap};
-use graph::{Graph, Node, Edge, AdjArrayGraph};
+use addressable_heap::AddressableHeap;
+use graph::{Graph, Node, Edge};
 use std::ops::{Add};
 
 pub trait WeightedData<K> {

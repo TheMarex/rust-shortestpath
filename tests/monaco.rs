@@ -1,7 +1,7 @@
 extern crate shortestpath;
 
 use shortestpath::graph_builder::from_geojson;
-use shortestpath::dijkstra::dijkstra;
+use shortestpath::search::dijkstra;
 use shortestpath::graph::Graph;
 use shortestpath::addressable_heap::AddressableBinaryHeap;
 

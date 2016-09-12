@@ -1,11 +1,11 @@
 use geojson;
-use geojson::{Feature, Value, GeoJson, Geometry, FeatureCollection};
+use geojson::{Feature, Value, GeoJson};
 
 use rustc_serialize::json::Json;
 
-use graph::{Node, Graph, AdjArrayGraph};
+use graph::{Node, AdjArrayGraph};
 use wgs84::{WGS84, haversine};
-use dijkstra::{WeightedData};
+use search::{WeightedData};
 
 use std::fs::File;
 use std::io;
