@@ -92,7 +92,7 @@ impl<T: Ord> AdjArrayGraph<T> {
             // now construct the prefix array
             let mut offset : usize = 0;
             let mut last_start : Node = first_start_node;
-            let mut max_node_id : Node = 0;
+            let mut max_node_id : Node = first_start_node;
 
             for (start, target, d) in input_edges.drain(0..) {
                 if start != last_start {
@@ -108,7 +108,7 @@ impl<T: Ord> AdjArrayGraph<T> {
 
             // make sure we have an entry for each referenced node id
             // plus the sentinel
-            while offsets.len() <= max_node_id as usize {
+            while offsets.len() <= (max_node_id+1) as usize {
                 offsets.push(offset as u32);
             }
         }
@@ -171,6 +171,9 @@ mod tests {
         let g: AdjArrayGraph<()> = AdjArrayGraph::new(vec![
         (0, 1, ()), (0, 2, ()), (1, 2, ())
         ]);
+
+        assert_eq!(g.num_nodes(), 3);
+        assert_eq!(g.num_edges(), 3);
 
         let test_sources = vec![0, 1, 2];
         let test_targets = vec![vec![1, 2], vec![2], vec![]];

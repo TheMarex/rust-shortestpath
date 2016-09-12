@@ -1,5 +1,8 @@
 [package]
-
 name = "shortestpath"
 version = "0.0.1"
 authors = [ "Patrick Niklaus <patrick.niklaus@student.kit.edu>" ]
+
+[dependencies]
+geojson = "0.4.0"
+rustc-serialize = "0.3.19"
